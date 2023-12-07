@@ -88,6 +88,9 @@ const displayNum2 = document.querySelector("#num2");
 const displayOperator = document.querySelector("#lastOperator");
     displayOperator.textContent = lastOperator;
 
+const displayResult = document.querySelector('#result');
+    displayResult.textContent = result;
+
 const equal = document.querySelector("#btnEqual").addEventListener("click", clickEqual);
 const operatorButton = document.querySelectorAll(".operatorPad");
 const numberButton = document.querySelectorAll(".numPad");
