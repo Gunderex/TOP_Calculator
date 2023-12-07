@@ -9,28 +9,25 @@ function operate() {
     if (num2 == "") {
         return;
     } else if (operator == "btnPlus") {
-            result = num1 + num2;
+            result = Number(num1) + Number(num2);
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
             operator = ""; 
     } else if (operator == "btnMinus") {
-        const subtract = function(num1, num2) {
-            result = num1 - num2;
+            result = Number(num1) - Number(num2);
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
             operator = "";
-           
-        };
     } else if (operator == "btnMultiply") {
-            result = num1 * num2;
+            result = Number(num1) * Number(num2);
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
             operator = "";
     } else if (operator == "btnDivide") {
-            result = num1 / num2;
+            result = Number(num1) / Number(num2);
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
@@ -60,13 +57,13 @@ function clickEqual(event) {
     if (event.target.tagName !== "BUTTON") {
         return;
      } else if (operator == "" && result == "") {
-        num1 += ("'" + event.target.textContent + "'");
+        num1 = num1.concat(event.target.textContent);
      }else if (result !== "") {
         num1 = result;
         result = "";
-        num2 += ("'" + event.target.textContent + "'");
+        num2.concat(event.target.textContent);
      } else if (operator !== "") {
-        num2 += ("'" + event.target.textContent + "'");
+        num2 = num2.concat(event.target.textContent);
      }
      console.log("Num1: "+num1);
      console.log("Num2: "+num2);
