@@ -23,3 +23,7 @@ function operate(num1, num2, operator) {
         };
     }
 }
+
+const display = document.querySelector("#display");
+display.textContent = result;
+const equal = document.querySelector("#btnEqual");
