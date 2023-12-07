@@ -69,6 +69,16 @@ function clickEqual(event) {
      console.log("Num2: "+num2);
  }
 
+ function clickClear(event) {
+    if (event.target.tagName !== "BUTTON") {
+        return;
+    }
+
+        num1 = "";
+        num2 = "";
+        result = "";
+ }
+
 const display = document.querySelector("#display");
 const displayNum1 = document.querySelector("#num1");
     displayNum1.textContent = num1;
@@ -92,3 +102,5 @@ for (let i = 0; i < operatorButton.length; i++) {
 for (let i = 0; i < numberButton.length; i++) {
     numberButton[i].addEventListener("click", clickNumber);
 }
+
+const clearButton = document.querySelector("#btnClear").addEventListener('click', clickClear);
