@@ -5,18 +5,15 @@ let lastNum1 = ""
 let num1 = "";
 let num2 = "";
 
-function operate(num1, num2, operator) {
+function operate() {
     if (num2 == "") {
         return;
     } else if (operator == "btnPlus") {
-        const add = function(num1, num2) {
             result = num1 + num2;
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
-            operator = "";
-            
-        };
+            operator = ""; 
     } else if (operator == "btnMinus") {
         const subtract = function(num1, num2) {
             result = num1 - num2;
@@ -27,23 +24,17 @@ function operate(num1, num2, operator) {
            
         };
     } else if (operator == "btnMultiply") {
-        const multiply = function(num1, num2) {
             result = num1 * num2;
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            
-        };
     } else if (operator == "btnDivide") {
-        const divide = function(num1, num2) {
             result = num1 / num2;
             lastOperator = operator;
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            
-        };
     }
 }
 
