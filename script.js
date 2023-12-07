@@ -8,21 +8,33 @@ function operate(num1, num2, operator) {
     if (operator == "btnPlus") {
         const add = function(num1, num2) {
             result = num1 + num2;
+            operator = "";
+            entry1 = "";
+            entry2 = "";
             return result;
         };
     } else if (operator == "btnMinus") {
         const subtract = function(num1, num2) {
             result = num1 - num2;
+            operator = "";
+            entry1 = "";
+            entry2 = "";
             return result;
         };
     } else if (operator == "btnMultiply") {
         const multiply = function(num1, num2) {
             result = num1 * num2;
+            operator = "";
+            entry1 = "";
+            entry2 = "";
             return result;
         };
     } else if (operator == "btnDivide") {
         const divide = function(num1, num2) {
             result = num1 / num2;
+            operator = "";
+            entry1 = "";
+            entry2 = "";
             return result;
         };
     }
@@ -42,6 +54,8 @@ function clickEqual(event) {
      }
      return operator = event.target.textContent;
  }
+
+ function
 
 const display = document.querySelector("#display");
 display.textContent = currentDisplay;
