@@ -5,42 +5,36 @@ let lastNum1 = ""
 let num1 = "";
 let num2 = "";
 
+/* Math function called when = is pressed */
 function operate() {
     if (num2 == "") {
         return;
     } else if (operator == "btnPlus") {
             result = Number(num1) + Number(num2);
-            lastOperator = operator;
-            lastNum1 = num1;
-            num1 = result;
             operator = ""; 
     } else if (operator == "btnMinus") {
             result = Number(num1) - Number(num2);
-            lastOperator = operator;
-            lastNum1 = num1;
-            num1 = result;
             operator = "";
     } else if (operator == "btnMultiply") {
             result = Number(num1) * Number(num2);
-            lastOperator = operator;
-            lastNum1 = num1;
-            num1 = result;
             operator = "";
     } else if (operator == "btnDivide") {
             result = Number(num1) / Number(num2);
-            lastOperator = operator;
-            lastNum1 = num1;
-            num1 = result;
             operator = "";
     }
 }
 
+/* Click handler functions for NumPad, Operators, Equals, and Clear */
 function clickEqual(event) {
     if (event.target.tagName !== "BUTTON") {
        return;
     } 
     operate(num1, num2, operator);
     console.log("Result: "+result);
+    displayNum1.textContent = num1;
+    displayOperator.textContent = lastOperator;
+    displayNum2.textContent = num2;
+    displayResult.textContent = "= "+result;
 
  }
 
@@ -51,6 +45,9 @@ function clickEqual(event) {
      operator = event.target.id;
      lastOperator = event.target.textContent;
      console.log("Operator: "+lastOperator);
+     displayNum1.textContent = num1;
+     displayOperator.textContent = lastOperator;
+     displayNum2.textContent = num2;
  }
 
  function clickNumber(event) {
@@ -65,6 +62,9 @@ function clickEqual(event) {
      } else if (operator !== "") {
         num2 = num2.concat(event.target.textContent);
      }
+     displayNum1.textContent = num1;
+     displayOperator.textContent = lastOperator;
+     displayNum2.textContent = num2;
      console.log("Num1: "+num1);
      console.log("Num2: "+num2);
  }
@@ -77,8 +77,15 @@ function clickEqual(event) {
         num1 = "";
         num2 = "";
         result = "";
+        operator = "";
+        lastOperator = "";
+        displayNum1.textContent = num1;
+        displayOperator.textContent = lastOperator;
+        displayNum2.textContent = num2;
+        displayResult.textContent = result;
  }
 
+ /* Constants for buttons and display */
 const display = document.querySelector("#display");
 const displayNum1 = document.querySelector("#num1");
     displayNum1.textContent = num1;
