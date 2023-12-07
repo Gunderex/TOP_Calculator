@@ -52,7 +52,7 @@ function clickEqual(event) {
        return;
     } 
     operate(num1, num2, operator);
-    console.log(result);
+    console.log("Result: "+result);
 
  }
 
@@ -62,7 +62,7 @@ function clickEqual(event) {
      }
      operator = event.target.id;
      lastOperator = event.target.textContent;
-     console.log(lastOperator);
+     console.log("Operator: "+lastOperator);
  }
 
  function clickNumber(event) {
@@ -77,8 +77,8 @@ function clickEqual(event) {
      } else if (operator !== "") {
         num2 += ("'" + event.target.textContent + "'");
      }
-     console.log(num1);
-     console.log(num2);
+     console.log("Num1: "+num1);
+     console.log("Num2: "+num2);
  }
 
 const display = document.querySelector("#display");
