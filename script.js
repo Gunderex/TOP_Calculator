@@ -4,7 +4,6 @@ let lastOperator = ""
 let lastNum1 = ""
 let num1 = "";
 let num2 = "";
-let currentDisplay = lastNum1 + " " + lastOperator + " " + num2 + " = " + result;
 
 function operate(num1, num2, operator) {
     if (num2 == "") {
@@ -60,7 +59,9 @@ function clickEqual(event) {
     if (event.target.tagName !== "BUTTON") {
         return;
      }
-     return operator = event.target.id;
+     operator = event.target.id;
+     lastOperator = event.target.textContent;
+     return operator;
  }
 
  function clickNumber(event) {
@@ -78,7 +79,22 @@ function clickEqual(event) {
  }
 
 const display = document.querySelector("#display");
-display.textContent = currentDisplay;
+const displayNum1 = document.querySelector("#num1");
+    displayNum1.textContent = num1;
+
+const displayNum2 = document.querySelector("#num2");
+    displayNum2.textContent = num2;
+
+const displayOperator = document.querySelector("#lastOperator");
+    displayOperator.textContent = lastOperator;
+
 const equal = document.querySelector("#btnEqual").addEventListener("click", clickEqual);
-const operatorButton = document.querySelectorAll(".operatorPad").addEventListener("click", clickOperator);
-const numberButton = document.querySelector(".numPad").addEventListener("click", clickNumber);
+const operatorButton = document.querySelectorAll(".operatorPad");
+const numberButton = document.querySelectorAll(".numPad");
+
+for (let i = 0; i < operatorButton.length; i++) {
+    operatorButton[i].addEventListener("click", clickOperator); 
+}
+for (let i = 0; i < numberButton.length; i++) {
+    numberButton[i].addEventListener("click", clickNumber);
+}
