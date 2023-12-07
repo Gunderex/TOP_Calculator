@@ -15,7 +15,7 @@ function operate(num1, num2, operator) {
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            return result;
+            
         };
     } else if (operator == "btnMinus") {
         const subtract = function(num1, num2) {
@@ -24,7 +24,7 @@ function operate(num1, num2, operator) {
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            return result;
+           
         };
     } else if (operator == "btnMultiply") {
         const multiply = function(num1, num2) {
@@ -33,7 +33,7 @@ function operate(num1, num2, operator) {
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            return result;
+            
         };
     } else if (operator == "btnDivide") {
         const divide = function(num1, num2) {
@@ -42,7 +42,7 @@ function operate(num1, num2, operator) {
             lastNum1 = num1;
             num1 = result;
             operator = "";
-            return result;
+            
         };
     }
 }
@@ -51,7 +51,8 @@ function clickEqual(event) {
     if (event.target.tagName !== "BUTTON") {
        return;
     } 
-    operate();
+    operate(num1, num2, operator);
+    console.log(result);
 
  }
 
@@ -61,7 +62,7 @@ function clickEqual(event) {
      }
      operator = event.target.id;
      lastOperator = event.target.textContent;
-     return operator;
+     console.log(lastOperator);
  }
 
  function clickNumber(event) {
@@ -76,6 +77,8 @@ function clickEqual(event) {
      } else if (operator !== "") {
         num2 += ("'" + event.target.textContent + "'");
      }
+     console.log(num1);
+     console.log(num2);
  }
 
 const display = document.querySelector("#display");
