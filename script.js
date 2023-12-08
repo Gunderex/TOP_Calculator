@@ -41,13 +41,25 @@ function clickEqual(event) {
  function clickOperator(event) {
     if (event.target.tagName !== "BUTTON") {
         return;
-     }
+     } else if (result == "") {
      operator = event.target.id;
      lastOperator = event.target.textContent;
      console.log("Operator: "+lastOperator);
      displayNum1.textContent = num1;
      displayOperator.textContent = lastOperator;
      displayNum2.textContent = num2;
+     } else if (result !=="") {
+        operator = event.target.id;
+        lastOperator = event.target.textContent;
+        num1 = result;
+        num2 = "";
+        result = "";
+        console.log("Operator: "+lastOperator);
+        displayNum1.textContent = num1;
+        displayOperator.textContent = lastOperator;
+        displayNum2.textContent = num2;
+        displayResult.textContent = result;
+     }
  }
 
  function clickNumber(event) {
@@ -55,10 +67,10 @@ function clickEqual(event) {
         return;
      } else if (operator == "" && result == "") {
         num1 = num1.concat(event.target.textContent);
-     }else if (result !== "") {
-        num1 = result;
-        result = "";
-        num2.concat(event.target.textContent);
+    //  }else if (result !== "") {
+    //     num1 = result;
+    //     result = "";
+    //     num2.concat(event.target.textContent);
      } else if (operator !== "") {
         num2 = num2.concat(event.target.textContent);
      }
